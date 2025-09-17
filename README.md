@@ -19,3 +19,4 @@ clone this repo and edit that file step by step instruction on below this
     /home/takathena/Documents/files/bookmark.html
 ```
 4. go to browser setting and go to the `On startup` select `Open a specific page or set of pages` If you have pasted the file address (the HTML one)
+5. if it already, You will find the display above as your first display when you open the browser.
