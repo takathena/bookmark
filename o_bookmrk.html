@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="asset/snowflake_2744-fe0f.png">
+    <title>Bookmark</title>
+    <style>
+        body {
+            background-color: #141414;
+            padding-bottom: 3em;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            div {
+                margin: 0 3em;
+                h1 {
+                    font-weight: 500;
+                    font-size: 2.6em;
+                    margin-bottom: 1.2em;
+                    transform: translate(30px, 10px);
+                    color: white;
+                    img {
+                        transform: translate(0, 6px);
+                        width: 1.1em;
+                    }
+                }
+                a {
+                    text-decoration: none;
+                    font-size: 2em;
+                    color: white;
+                }
+            }
+            .private, .design, .code, .games {
+                margin: 0 2em;
+                li {
+                    margin: 0.1em 0;
+                    &:hover {
+                        transform: translate(-16px, 0);
+                        transition: 0.1s;
+                        color: #00d161;
+                    }
+                }
+                ::marker {
+                    font-size: 20px;
+                }
+            }
+            .private {
+                li:last-child {
+                    a:last-child {
+                        padding-right: 46px;
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="private">
+            <h1>Private <img src="asset/zombie_1f9df.png" alt=""></h1>
+            <ol class="private">
+                <li><a href="https://web.whatsapp.com/" target="_blank">Whatsapp</a></li>
+                <li><a href="https://mail.google.com/mail/u/0/" target="_blank">Gmail</a></li>
+                <li><a href="https://outlook.live.com/mail/0/" target="_blank">Outlook</a></li>
+                <li><a href="https://shopee.co.id/" target="_blank">Shopee</a></li>
+                <li><a href="https://www.tokopedia.com/" target="_blank">Tokopedia</a></li>
+                <li><a href="bookmark.html">↩</a></li>
+            </ol>
+        </div>
+        <div class="design">
+            <h1>Design <img src="asset/old-key_1f5dd-fe0f.png" alt=""></h1>
+            <ol class="design">
+                <li><a href="https://www.cosmos.so/home" target="_blank">Cosmos</a></li>
+                <li><a href="https://www.pinterest.com/" target="_blank">Pinterest</a></li>
+                <li><a href="https://www.figma.com/community" target="_blank">Figma</a></li>
+                <li><a href="https://brandfetch.com/" target="_blank">BrandFetch</a></li>
+                <li><a href="https://www.canva.com/" target="_blank">Canva</a></li>
+                <li><a href="https://docs.google.com/document/u/0/?hl=ID" target="_blank">GDocs</a></li>
+                <li><a href="https://artsandculture.google.com/" target="_blank">Google Art</a></li>
+            </ol>
+        </div>
+        <div class="code">
+            <h1>Code <img src="asset/soon-arrow_1f51c.png" alt=""></h1>
+            <ol class="code">
+                <li><a href="https://github.com/" target="_blank">Github</a></li>
+                <li><a href="https://hub.docker.com/" target="_blank">DockerHub</a></li>
+                <li><a href="https://ollama.com/" target="_blank">Ollama</a></li>
+                <li><a href="https://wokwi.com/" target="_blank">Wokwi</a></li>
+            </ol>
+        </div>
+        <div class="games">
+            <h1>Games <img src="asset/crossed-swords_2694-fe0f.png" alt=""></h1>
+            <ol class="games">
+                <li><a href="https://store.steampowered.com/" target="_blank">Steam</a></li>
+                <li><a href="https://store.epicgames.com/en-US" target="_blank">EpicGames</a></li>
+                <li><a href="https://steamdb.info/" target="_blank">SteamDB</a></li>
+                <li><a href="https://www.chess.com/" target="_blank">Chess</a></li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
