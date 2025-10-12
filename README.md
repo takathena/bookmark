@@ -1,4 +1,4 @@
-# Bookmark V2, "heavy version btw" (startup bookmark)
+# Bookmark V2 'several features'
 
 >  main purpose!
 
