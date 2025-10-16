@@ -26,6 +26,7 @@ body {
     }
     .one, .two, .three, .four {
         margin: 0 2em;
+        width: 260px;
         li {
             margin: 0.1em 0;
             &:hover {

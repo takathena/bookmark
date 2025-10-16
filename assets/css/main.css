@@ -14,9 +14,9 @@ body{
 .container, .container-page{
   max-width:1000px;
   margin:40px auto;
-  padding:24px;
+  padding: 24px 24px 24px 64px;
 }
-h1{font-size:6.3rem;margin:0 0 12px}
+h1{font-size:6.2rem;margin:0 0 16px;}
 .links{list-style:disc;margin-left:20px}
 a{color:#9ec1ff;text-decoration:none}
 a:hover{text-decoration:underline}
