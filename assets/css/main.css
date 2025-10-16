@@ -16,7 +16,7 @@ body{
   margin:40px auto;
   padding:24px;
 }
-h1{font-size:2rem;margin:0 0 12px}
+h1{font-size:6.3rem;margin:0 0 12px}
 .links{list-style:disc;margin-left:20px}
 a{color:#9ec1ff;text-decoration:none}
 a:hover{text-decoration:underline}
@@ -25,7 +25,25 @@ a:hover{text-decoration:underline}
   background:rgba(255,255,255,0.06);border:1px solid #ffffff14;color:white;
 }
 #jakarta-clock {
-  font-size: 1rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-top: 16px;
+}
+.instruction {
+  font-size: 18px;
+  margin: 1.3em 0 1.7em 0;
+  strong{
+    font-weight:600;
+    border: 1px solid #ffffff38;
+    border-radius: 8px;
+    padding: 4px 6px;
+  }
+  strong:nth-child(1){
+      margin-left: 4px;
+      margin-right: 1px;
+  }
+  strong:nth-child(2){
+      margin-left: 2px;
+      margin-right: 4px;
+  }
 }
