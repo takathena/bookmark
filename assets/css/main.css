@@ -1,0 +1,26 @@
+/* main.css - global styles */
+:root{
+  --bg:#141414;
+  --muted:rgba(255,255,255,0.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+.container, .container-page{
+  max-width:1000px;
+  margin:40px auto;
+  padding:24px;
+}
+h1{font-size:2rem;margin:0 0 12px}
+.links{list-style:disc;margin-left:20px}
+a{color:#9ec1ff;text-decoration:none}
+a:hover{text-decoration:underline}
+.btn{
+  display:inline-block;padding:10px 16px;border-radius:8px;
+  background:rgba(255,255,255,0.06);border:1px solid #ffffff14;color:white;
+}
