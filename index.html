@@ -10,45 +10,14 @@
 <body>
   <main class="container">
     <h1>Welcome to Bookmark</h1>
+    <div id="jakarta-clock">Loading!</div>
     <p>Use <strong>Ctrl + .</strong> to switch pages (bookmark1 &amp; bookmark2).</p>
     <a href="pages/bookmark1.html" class="btn">Open Bookmark 1</a>
-     <!-- Tempat jam Jakarta -->
-  <div id="jakarta-clock" style="font-size:20px; font-weight:bold; margin-top:10px;">
-    Jakarta Time: ...
-  </div>
-
-  <script>
-    function updateClock() {
-      const now = new Date();
-
-      // Format tanggal (hari, bulan, tahun) dalam bahasa Inggris
-      const dateOptions = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        timeZone: 'Asia/Jakarta' 
-      };
-      const dateString = now.toLocaleDateString('en-US', dateOptions);
-
-      // Format waktu (jam:menit:detik) dalam bahasa Inggris
-      const timeOptions = { 
-        timeZone: 'Asia/Jakarta',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      };
-      const timeString = now.toLocaleTimeString('en-US', timeOptions);
-
-      document.getElementById('jakarta-clock').textContent = dateString + "  " + timeString;
-    }
-
-    // update tiap detik
-    setInterval(updateClock, 1000);
-    updateClock(); // panggil sekali langsung tampil
-  </script>
+    
+    <!-- Tempat jam Jakarta -->
   </main>
+  <!-- Script -->
+  <script src="assets/js/clock.js" defer></script>
   <script src="assets/js/switchPages.js" defer></script>
 </body>
 </html>

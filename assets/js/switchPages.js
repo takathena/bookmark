@@ -1,18 +1,37 @@
-// switchPages.js - Ctrl + . toggles between bookmark1.html and bookmark2.html
-document.addEventListener('keydown', (e) => {
-  if (e.ctrlKey && e.key === '.') {
-    e.preventDefault();
-    const current = window.location.pathname.split('/').pop().toLowerCase();
-    const target = (current === 'bookmark1.html') ? 'bookmark2.html' : 'bookmark1.html';
-    document.body.style.transition = 'opacity 0.35s ease';
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-      // if pages are in /pages/ keep relative path
-      if (current.startsWith('bookmark')) {
-        window.location.href = target;
+document.addEventListener("keydown", function (e) {
+  if (!e.ctrlKey) return;
+
+  const currentPage = window.location.pathname;
+
+  // Ambil state terakhir (default = 1)
+  let lastBookmark = localStorage.getItem("lastBookmark") || "1";
+
+  // === Shortcut Ctrl + . ===
+  if (e.key === ".") {
+    if (currentPage.includes("index.html") || currentPage.endsWith("/")) {
+      // Dari index.html → buka bookmark sesuai giliran
+      if (lastBookmark === "1") {
+        window.location.href = "pages/bookmark2.html";
+        localStorage.setItem("lastBookmark", "2");
       } else {
-        window.location.href = 'pages/' + target;
+        window.location.href = "pages/bookmark1.html";
+        localStorage.setItem("lastBookmark", "1");
       }
-    }, 360);
+    } else if (currentPage.includes("bookmark1.html")) {
+      // Dari bookmark1 → pindah ke bookmark2
+      window.location.href = "bookmark2.html";
+      localStorage.setItem("lastBookmark", "2");
+    } else if (currentPage.includes("bookmark2.html")) {
+      // Dari bookmark2 → pindah ke bookmark1
+      window.location.href = "bookmark1.html";
+      localStorage.setItem("lastBookmark", "1");
+    }
+  }
+
+  // === Shortcut Ctrl + , ===
+  if (e.key === ",") {
+    if (currentPage.includes("bookmark1.html") || currentPage.includes("bookmark2.html")) {
+      window.location.href = "../index.html";
+    }
   }
 });

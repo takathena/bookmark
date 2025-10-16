@@ -24,3 +24,8 @@ a:hover{text-decoration:underline}
   display:inline-block;padding:10px 16px;border-radius:8px;
   background:rgba(255,255,255,0.06);border:1px solid #ffffff14;color:white;
 }
+#jakarta-clock {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 16px;
+}
