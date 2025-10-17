@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!searchBar) return;
 
   const reflection = document.createElement('div');
-  reflection.style.cssText = 'position:absolute;inset:0;pointer-events:none;transition:transform .2s linear;';
+  reflection.style.cssText = 'position:absolute;inset:0;pointer-events:none;transition:transform .2s linear;margin: 0 10px;';
   searchBar.appendChild(reflection);
 
   // smooth lerp for reflection
