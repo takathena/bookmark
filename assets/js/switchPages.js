@@ -1,12 +1,10 @@
 document.addEventListener("keydown", function (e) {
-  if (!e.ctrlKey) return;
-
   const currentPage = window.location.pathname;
 
   // Ambil state terakhir (default = 1)
   let lastBookmark = localStorage.getItem("lastBookmark") || "1";
 
-  // === Shortcut Ctrl + . ===
+  // === Shortcut tombol "." ===
   if (e.key === ".") {
     if (currentPage.includes("index.html") || currentPage.endsWith("/")) {
       // Dari index.html → buka bookmark sesuai giliran
@@ -28,7 +26,7 @@ document.addEventListener("keydown", function (e) {
     }
   }
 
-  // === Shortcut Ctrl + , ===
+  // === Shortcut tombol "," ===
   if (e.key === ",") {
     if (currentPage.includes("bookmark1.html") || currentPage.includes("bookmark2.html")) {
       window.location.href = "../index.html";
