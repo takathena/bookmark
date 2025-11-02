@@ -21,7 +21,7 @@ function updateClock() {
   };
   const timeString = now.toLocaleTimeString('en-US', timeOptions);
 
-  document.getElementById('jakarta-clock').textContent = dateString + "  " + timeString;
+  document.getElementById('jakarta-clock').textContent = timeString + "  " + dateString;
 }
 
 // update tiap detik

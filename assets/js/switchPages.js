@@ -4,8 +4,8 @@ document.addEventListener("keydown", function (e) {
   // Ambil state terakhir (default = 1)
   let lastBookmark = localStorage.getItem("lastBookmark") || "1";
 
-  // === Shortcut tombol "." ===
-  if (e.key === ".") {
+  // === Shortcut tombol "'" ===
+  if (e.key === "'") {
     if (currentPage.includes("index.html") || currentPage.endsWith("/")) {
       // Dari index.html → buka bookmark sesuai giliran
       if (lastBookmark === "1") {

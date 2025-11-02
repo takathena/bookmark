@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const icon = document.createElement('span');
   icon.className = 'icon';
-  icon.textContent = '/';
+  icon.textContent = ";";
 
   const input = document.createElement('input');
   input.type = 'search';
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     const active = document.activeElement;
     const isTyping = active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
-    if (!isTyping && e.key === '/' && !e.ctrlKey && !e.metaKey) {
+    if (!isTyping && e.key === ";" && !e.ctrlKey && !e.metaKey) {
       e.preventDefault();
       container.classList.add('visible');
       input.focus();
