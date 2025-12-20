@@ -1,24 +1,689 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bookmark Dashboard</title>
-  <link rel="icon" type="image/x-icon" href="assets/img/snowflake_2744-fe0f.png">
-  <link rel="stylesheet" href="assets/css/main.css" />
+    <meta charset="UTF-8">
+    <title>brutalpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* BRUTALIST CSS - MINIMAL BANGET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: 16px;
+            color: black;
+            background-color: white;
+        }
+        
+        body {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER - WAKTU */
+        .header {
+            border: 3px solid black;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 8px 8px 0 black;
+        }
+        
+        .time {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .date {
+            font-size: 1.2em;
+            color: #666;
+        }
+        
+        /* GRID UTAMA */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        /* KOLOM KIRI */
+        .search-box {
+            border: 3px solid black;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 8px 8px 0 black;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid black;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            background-color: #f0f0f0;
+        }
+        
+        .search-engines {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .engine-btn {
+            padding: 8px 12px;
+            border: 2px solid black;
+            cursor: pointer;
+            background-color: white;
+        }
+        
+        .engine-btn.active {
+            background-color: black;
+            color: white;
+        }
+        
+        /* AI SELECTOR */
+        .ai-selector {
+            border: 3px solid black;
+            padding: 15px;
+            box-shadow: 8px 8px 0 black;
+        }
+        
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid black;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        select:focus {
+            outline: none;
+            background-color: #f0f0f0;
+        }
+        
+        button {
+            padding: 12px;
+            border: 2px solid black;
+            background-color: white;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* KOLOM KANAN - NOTES */
+        .notes {
+            border: 3px solid black;
+            padding: 15px;
+            height: 100%;
+            box-shadow: 8px 8px 0 black;
+        }
+        
+        .notes-header {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .notes-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .notes-controls button {
+            width: auto;
+            padding: 6px 10px;
+            font-size: 0.9em;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 15px;
+            border: 2px solid black;
+            resize: vertical;
+            line-height: 1.4;
+            font-family: monospace;
+        }
+        
+        textarea:focus {
+            outline: none;
+            background-color: #f0f0f0;
+        }
+        
+        /* QUOTES */
+        .quotes {
+            border: 3px solid black;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 8px 8px 0 black;
+            margin-bottom: 30px;
+        }
+        
+        .quote-text {
+            font-style: italic;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .quote-author {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* SETTINGS MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid black;
+            background-color: white;
+            padding: 30px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 15px 15px 0 black;
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .settings-group {
+            margin-bottom: 20px;
+        }
+        
+        .settings-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        /* BACKGROUND */
+        .background-control {
+            border: 3px solid black;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 8px 8px 0 black;
+        }
+        
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid black;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .time {
+                font-size: 2em;
+            }
+            
+            input[type="text"], select, button {
+                font-size: 1em;
+            }
+        }
+        
+        /* UTILITY */
+        .mt-10 { margin-top: 10px; }
+        .mb-10 { margin-bottom: 10px; }
+        .text-center { text-align: center; }
+        
+        /* LOADING */
+        .loading {
+            background-color: #f0f0f0;
+            color: #666;
+            padding: 10px;
+            text-align: center;
+            border: 2px dashed #ccc;
+        }
+    </style>
 </head>
 <body>
-  <main class="container">
-    <h1>Welcome #<br><a class="username"href="https://instagram.com/pitravs">takathena</a></h1>
-    <div id="jakarta-clock">Loading!</div>
-    <p class="instruction">Use <strong>'</strong> or <strong>,</strong> to switch pages (home, bookmark1 &amp; bookmark2).</p>
-    <p class="instruction">Use <strong>;</strong> <strong>Enter</strong> to search & go to the section pages (bookmark1 &amp; bookmark2).</p>
-    <a href="pages/bookmark1.html" class="btn">Open Bookmark 1</a>
-    
-    <!-- Tempat jam Jakarta -->
-  </main>
-  <!-- Script -->
-  <script src="assets/js/clock.js" defer></script>
-  <script src="assets/js/switchPages.js" defer></script>
+    <!-- HEADER WAKTU -->
+    <div class="header">
+        <div class="time" id="timeDisplay">00:00:00</div>
+        <div class="date" id="dateDisplay">Loading...</div>
+        <div class="mt-10" id="timezoneDisplay">WIB - Asia/Jakarta</div>
+    </div>
+
+    <!-- GRID UTAMA -->
+    <div class="grid">
+        <!-- KOLOM KIRI -->
+        <div class="left-column">
+            <!-- SEARCH BOX -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="SEARCH (Ctrl+K)">
+                <div class="search-engines" id="searchEngines">
+                    <!-- Search engines diisi JS -->
+                </div>
+            </div>
+
+            <!-- AI SELECTOR -->
+            <div class="ai-selector">
+                <select id="aiSelector">
+                    <option value="">-- PILIH AI --</option>
+                    <!-- AI options diisi JS -->
+                </select>
+                <button id="aiButton">BUKAI AI</button>
+            </div>
+
+            <!-- BACKGROUND CONTROL -->
+            <div class="background-control">
+                <div class="mb-10">BACKGROUND IMAGE</div>
+                <button id="changeBgButton">GANTI GAMBAR</button>
+                <div class="mt-10">
+                    <label>
+                        <input type="checkbox" id="blurToggle"> BLUR
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- KOLOM KANAN - NOTES -->
+        <div class="notes">
+            <div class="notes-header">
+                <strong>NOTES</strong>
+                <div class="notes-controls">
+                    <button id="saveNotesButton">SAVE</button>
+                    <button id="clearNotesButton">CLEAR</button>
+                </div>
+            </div>
+            <textarea id="notesTextarea" placeholder="Tulis catatan disini..."></textarea>
+        </div>
+    </div>
+
+    <!-- QUOTES -->
+    <div class="quotes">
+        <div class="quote-text" id="quoteText">Loading quotes...</div>
+        <div class="quote-author" id="quoteAuthor"></div>
+        <button id="newQuoteButton" class="mt-10">QUOTE BARU</button>
+    </div>
+
+    <!-- SETTINGS MODAL -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-header">
+            <h2>SETTINGS (Ctrl+0)</h2>
+            <p>ESC untuk close</p>
+        </div>
+        
+        <div class="settings-group">
+            <label>TIMEZONE</label>
+            <select id="timezoneSelect">
+                <!-- Timezones diisi JS -->
+            </select>
+        </div>
+        
+        <div class="settings-group">
+            <label>DEFAULT SEARCH</label>
+            <select id="defaultSearchSelect">
+                <option value="google">Google</option>
+                <option value="youtube">YouTube</option>
+                <option value="wikipedia">Wikipedia</option>
+                <option value="github">GitHub</option>
+                <option value="duckduckgo">DuckDuckGo</option>
+            </select>
+        </div>
+        
+        <div class="settings-group">
+            <label>BACKGROUND INTERVAL</label>
+            <select id="bgIntervalSelect">
+                <option value="60000">1 Menit</option>
+                <option value="300000">5 Menit</option>
+                <option value="1800000">30 Menit</option>
+                <option value="3600000">1 Jam</option>
+                <option value="86400000">1 Hari</option>
+            </select>
+        </div>
+        
+        <div class="text-center mt-10">
+            <button id="saveSettingsButton">SAVE SETTINGS</button>
+            <button id="closeSettingsButton" style="margin-top: 10px;">CLOSE</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        brutalpage • Ctrl+K = search • Ctrl+0 = settings • ESC = close modal
+    </div>
+
+    <script>
+        // DATA
+        const searchEngines = [
+            { id: 'google', name: 'GOOGLE', url: 'https://www.google.com/search?q=' },
+            { id: 'youtube', name: 'YOUTUBE', url: 'https://www.youtube.com/results?search_query=' },
+            { id: 'wikipedia', name: 'WIKIPEDIA', url: 'https://id.wikipedia.org/wiki/Special:Search?search=' },
+            { id: 'github', name: 'GITHUB', url: 'https://github.com/search?q=' },
+            { id: 'duckduckgo', name: 'DUCKDUCKGO', url: 'https://duckduckgo.com/?q=' }
+        ];
+
+        const aiAssistants = [
+            { id: 'chatgpt', name: 'CHATGPT', url: 'https://chat.openai.com/' },
+            { id: 'claude', name: 'CLAUDE AI', url: 'https://claude.ai/' },
+            { id: 'bard', name: 'GOOGLE BARD', url: 'https://bard.google.com/' },
+            { id: 'bingai', name: 'BING AI', url: 'https://www.bing.com/chat' },
+            { id: 'perplexity', name: 'PERPLEXITY AI', url: 'https://www.perplexity.ai/' }
+        ];
+
+        const quotes = [
+            { text: "Hidup itu sederhana, yang ribet itu pikiran.", author: "Anonim" },
+            { text: "Jalan aja dulu, nanti juga ketemu.", author: "Anonim" },
+            { text: "Gak usah banyak bacot, kerja aja.", author: "Anonim" },
+            { text: "Santai bro, yang penting usaha.", author: "Anonim" },
+            { text: "Yang lalu biarlah berlalu.", author: "Anonim" },
+            { text: "Jangan mikirin yang belum terjadi.", author: "Anonim" },
+            { text: "Lakukan sekarang, nanti menyesal.", author: "Anonim" },
+            { text: "Simple is best.", author: "Anonim" }
+        ];
+
+        // STATE
+        let currentEngine = 'google';
+        let currentTimezone = 'Asia/Jakarta';
+        let bgInterval = 300000; // 5 menit
+        let bgIntervalId = null;
+
+        // INIT
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+            initSearchEngines();
+            initAISelector();
+            initTimezones();
+            updateTime();
+            loadNotes();
+            showRandomQuote();
+            setupEventListeners();
+            setupKeyboardShortcuts();
+            
+            setInterval(updateTime, 1000);
+        });
+
+        // FUNGSI TIME
+        function updateTime() {
+            const now = new Date();
+            
+            // Format waktu
+            const timeStr = now.toLocaleTimeString('id-ID', { 
+                timeZone: currentTimezone,
+                hour12: false 
+            });
+            document.getElementById('timeDisplay').textContent = timeStr;
+            
+            // Format tanggal
+            const dateStr = now.toLocaleDateString('id-ID', { 
+                timeZone: currentTimezone,
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('dateDisplay').textContent = dateStr;
+            
+            // Timezone info
+            document.getElementById('timezoneDisplay').textContent = currentTimezone;
+        }
+
+        function initTimezones() {
+            const select = document.getElementById('timezoneSelect');
+            const timezones = [
+                'Asia/Jakarta',
+                'Asia/Makassar', 
+                'Asia/Jayapura',
+                'Asia/Singapore',
+                'Asia/Tokyo',
+                'America/New_York',
+                'America/Los_Angeles',
+                'Europe/London',
+                'Europe/Paris',
+                'Australia/Sydney'
+            ];
+            
+            timezones.forEach(tz => {
+                const option = document.createElement('option');
+                option.value = tz;
+                option.textContent = tz;
+                if (tz === currentTimezone) option.selected = true;
+                select.appendChild(option);
+            });
+        }
+
+        // FUNGSI SEARCH
+        function initSearchEngines() {
+            const container = document.getElementById('searchEngines');
+            container.innerHTML = '';
+            
+            searchEngines.forEach(engine => {
+                const btn = document.createElement('button');
+                btn.className = `engine-btn ${engine.id === currentEngine ? 'active' : ''}`;
+                btn.textContent = engine.name;
+                btn.onclick = () => {
+                    document.querySelectorAll('.engine-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentEngine = engine.id;
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function search() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+            
+            const engine = searchEngines.find(e => e.id === currentEngine);
+            if (engine) {
+                window.open(engine.url + encodeURIComponent(query), '_blank');
+            }
+            
+            document.getElementById('searchInput').value = '';
+        }
+
+        // FUNGSI AI
+        function initAISelector() {
+            const select = document.getElementById('aiSelector');
+            aiAssistants.forEach(ai => {
+                const option = document.createElement('option');
+                option.value = ai.id;
+                option.textContent = ai.name;
+                select.appendChild(option);
+            });
+        }
+
+        function openAI() {
+            const select = document.getElementById('aiSelector');
+            const selected = select.value;
+            if (!selected) return alert('Pilih AI dulu');
+            
+            const ai = aiAssistants.find(a => a.id === selected);
+            if (ai) window.open(ai.url, '_blank');
+        }
+
+        // FUNGSI NOTES
+        function loadNotes() {
+            const saved = localStorage.getItem('brutalNotes');
+            if (saved) {
+                document.getElementById('notesTextarea').value = saved;
+            }
+        }
+
+        function saveNotes() {
+            const notes = document.getElementById('notesTextarea').value;
+            localStorage.setItem('brutalNotes', notes);
+            alert('Notes saved!');
+        }
+
+        function clearNotes() {
+            if (confirm('Clear semua notes?')) {
+                document.getElementById('notesTextarea').value = '';
+                localStorage.removeItem('brutalNotes');
+            }
+        }
+
+        // FUNGSI QUOTES
+        function showRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+            document.getElementById('quoteText').textContent = `"${quote.text}"`;
+            document.getElementById('quoteAuthor').textContent = `- ${quote.author}`;
+        }
+
+        // FUNGSI BACKGROUND
+        function changeBackground() {
+            const keywords = ['abstract', 'pattern', 'texture', 'minimal', 'brutalist'];
+            const keyword = keywords[Math.floor(Math.random() * keywords.length)];
+            const url = `https://source.unsplash.com/random/1920x1080/?${keyword}`;
+            
+            document.body.style.backgroundImage = `url('${url}')`;
+            document.body.style.backgroundSize = 'cover';
+            document.body.style.backgroundPosition = 'center';
+        }
+
+        // FUNGSI SETTINGS
+        function loadSettings() {
+            const saved = localStorage.getItem('brutalSettings');
+            if (saved) {
+                const settings = JSON.parse(saved);
+                currentEngine = settings.engine || 'google';
+                currentTimezone = settings.timezone || 'Asia/Jakarta';
+                bgInterval = settings.bgInterval || 300000;
+                
+                // Apply to selects
+                document.getElementById('defaultSearchSelect').value = currentEngine;
+                document.getElementById('bgIntervalSelect').value = bgInterval;
+                
+                // Apply blur
+                const blurToggle = document.getElementById('blurToggle');
+                if (settings.blurEnabled) {
+                    blurToggle.checked = true;
+                    document.body.style.backdropFilter = 'blur(10px)';
+                }
+            }
+        }
+
+        function saveSettings() {
+            const settings = {
+                engine: document.getElementById('defaultSearchSelect').value,
+                timezone: document.getElementById('timezoneSelect').value,
+                bgInterval: parseInt(document.getElementById('bgIntervalSelect').value),
+                blurEnabled: document.getElementById('blurToggle').checked
+            };
+            
+            localStorage.setItem('brutalSettings', JSON.stringify(settings));
+            
+            // Apply changes
+            currentEngine = settings.engine;
+            currentTimezone = settings.timezone;
+            bgInterval = settings.bgInterval;
+            
+            if (settings.blurEnabled) {
+                document.body.style.backdropFilter = 'blur(10px)';
+            } else {
+                document.body.style.backdropFilter = 'none';
+            }
+            
+            updateTime();
+            initSearchEngines();
+            alert('Settings saved!');
+        }
+
+        // FUNGSI MODAL
+        function openSettings() {
+            document.getElementById('settingsModal').style.display = 'block';
+        }
+
+        function closeSettings() {
+            document.getElementById('settingsModal').style.display = 'none';
+        }
+
+        // EVENT LISTENERS
+        function setupEventListeners() {
+            // Search
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') search();
+            });
+            
+            // AI
+            document.getElementById('aiButton').onclick = openAI;
+            
+            // Notes
+            document.getElementById('saveNotesButton').onclick = saveNotes;
+            document.getElementById('clearNotesButton').onclick = clearNotes;
+            
+            // Quotes
+            document.getElementById('newQuoteButton').onclick = showRandomQuote;
+            
+            // Background
+            document.getElementById('changeBgButton').onclick = changeBackground;
+            document.getElementById('blurToggle').onchange = function() {
+                document.body.style.backdropFilter = this.checked ? 'blur(10px)' : 'none';
+            };
+            
+            // Settings modal
+            document.getElementById('saveSettingsButton').onclick = saveSettings;
+            document.getElementById('closeSettingsButton').onclick = closeSettings;
+            
+            // Close modal on outside click
+            window.onclick = function(event) {
+                const modal = document.getElementById('settingsModal');
+                if (event.target === modal) {
+                    closeSettings();
+                }
+            };
+        }
+
+        // KEYBOARD SHORTCUTS
+        function setupKeyboardShortcuts() {
+            document.addEventListener('keydown', function(e) {
+                // Ctrl + K = focus search
+                if (e.ctrlKey && e.key === 'k') {
+                    e.preventDefault();
+                    document.getElementById('searchInput').focus();
+                }
+                
+                // Ctrl + 0 = open settings
+                if (e.ctrlKey && e.key === '0') {
+                    e.preventDefault();
+                    openSettings();
+                }
+                
+                // ESC = close modal
+                if (e.key === 'Escape') {
+                    closeSettings();
+                }
+            });
+        }
+
+        // EXPORT KE WINDOW (buat debugging)
+        window.brutal = {
+            search,
+            saveNotes,
+            changeBackground,
+            showRandomQuote,
+            openSettings
+        };
+    </script>
 </body>
 </html>
