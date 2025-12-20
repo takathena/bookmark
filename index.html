@@ -978,16 +978,6 @@
                 if (e.key === 'Escape') {
                     closeSettings();
                 }
-                
-                // Ctrl + T = cycle themes
-                if (e.ctrlKey && e.key === 't') {
-                    e.preventDefault();
-                    const currentIndex = themes.findIndex(t => t.id === currentTheme);
-                    const nextIndex = (currentIndex + 1) % themes.length;
-                    const nextTheme = themes[nextIndex];
-                    applyTheme(nextTheme.id);
-                    document.getElementById('themeSelect').value = nextTheme.id;
-                }
             });
         }
 
