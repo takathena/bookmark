@@ -1,8 +1,8 @@
 {
   "name": "bookmark",
-  "version": "3.3.4",
-  "description": ">  main purpose!",
-  "main": "index.js",
+  "version": "2.1.1",
+  "description": "brutalist startpage",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
