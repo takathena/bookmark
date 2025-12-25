@@ -1,22 +1,78 @@
-# Bookmark V2 'several features'
+<div align="center">
 
->  main purpose!
+# 🧱 Brutal Dashboard
 
-I'm really bored with startup extensions that are just like that, they only offer images that are actually unnecessary, and most people and of course I only need a simple appearance and lots of shortcut widgets, that's the main goal I made this repo, actually it's not difficult to make and this is still static, I'm still developing it (my knowledge hasn't reached the dynamic website btw) but the main thing is that it uses files only and it's very easy for everyone to operate this file
+**Minimal Brutalist Web Startpage**  
+⏰ Clock • 🔍 Search • 🤖 AI Launcher • 📝 Notes • 🎨 Themes
 
-## Setup Instruction
+A fast, offline-first, single-file productivity dashboard.
 
-clone this repo and edit that file step by step instruction on below this
+</div>
 
-1. clone ts repo
+---
+
+## 🌍 About
+
+**Brutal Dashboard** is a **single-file web startpage** built with a **Brutalist UI philosophy**.  
+It combines essential productivity tools into one lightweight dashboard — **no framework, no backend, no tracking**.
+
+Perfect as:
+- Browser homepage
+- Personal productivity dashboard
+- Offline local tool
+
+---
+
+## ✨ Features / Fitur
+
+- ⏰ **Real-Time Clock & Date**
+- 🔍 **Quick Search (Multi Engine)**
+- 🤖 **AI Launcher**
+- 📝 **Notes (LocalStorage)**
+- 💬 **Random Motivational Quotes**
+- 🎨 **7 Brutalist Themes**
+- ⌨️ **Keyboard Shortcuts**
+- ⚡ **Single-file & Lightweight**
+- 🔒 **100% Client-Side**
+
+---
+
+## 🖼️ Live Demo
+
+➡️ takathena.github.io/bookmark/
+
+---
+
+## 🛠️ Installation
+
 ```bash
-    cd Document/
-    git clone https://github.com/takathena/bookmark.git 
+git clone https://github.com/takathena/brutal-dashboard.git
 ```
-2. open vscode and add some website you want
-3. after that open the files on browser and copy the file address, like this for example
-```bash
-    /home/takathena/Documents/files/bookmark.html
-```
-4. go to browser setting and go to the `On startup` select `Open a specific page or set of pages` If you have pasted the file address (the HTML one)
-5. if it already, You will find the display above as your first display when you open the browser.
+
+Open `index.html` directly in your browser.  
+> u bisa pake github pages aja biar ga ribet
+
+---
+
+## ⌨️ Keyboard Shortcuts
+
+| Shortcut | Action |
+|--------|-------|
+| Ctrl + K | Focus Search |
+| Ctrl + 0 | Open Settings |
+| ESC | Close Modal |
+
+---
+
+## 👤 Author
+
+**takathena**  
+https://github.com/takathena
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. You are free to use, modify, and distribute it.
+
+© 2025 takathena
