@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧱 StartPage (TTN221 >.<)
+# 🧱 StartPage **(TTN221 >.<)**
 
 **Simpe Startpage**  
 ⏰ Clock • 🔍 Search • 🤖 AI Launcher • 📝 Notes • 🎨 Themes
