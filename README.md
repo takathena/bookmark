@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🧱 Brutal Dashboard
+# 🧱 StartPage (TTN221 >.<)
 
-**Minimal Brutalist Web Startpage**  
+**Simpe Startpage**  
 ⏰ Clock • 🔍 Search • 🤖 AI Launcher • 📝 Notes • 🎨 Themes
 
 A fast, offline-first, single-file productivity dashboard.
@@ -39,14 +39,14 @@ Perfect as:
 
 ## 🖼️ Live Demo
 
-➡️ takathena.github.io/bookmark/
+➡️ https://takathena.github.io/bookmark/
 
 ---
 
 ## 🛠️ Installation
 
 ```bash
-git clone https://github.com/takathena/brutal-dashboard.git
+git clone https://github.com/takathena/bookmark.git
 ```
 
 Open `index.html` directly in your browser.  
@@ -60,7 +60,7 @@ Open `index.html` directly in your browser.
 |--------|-------|
 | Ctrl + K | Focus Search |
 | Ctrl + 0 | Open Settings |
-| ESC | Close Modal |
+| ESC | Close Setting |
 
 ---
 
