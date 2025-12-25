@@ -3,8 +3,7 @@
 # 🧱 StartPage **(TTN221 >.<)**
 
 **Simpe Startpage**  
-⏰ Clock • 🔍 Search • 🤖 AI Launcher • 📝 Notes • 🎨 Themes
-
+⏰ Clock • 🔍 Search • 🤖 AI Launcher • 📝 Notes • 🎨 Themes  
 A fast, offline-first, single-file productivity dashboard.
 
 </div>
